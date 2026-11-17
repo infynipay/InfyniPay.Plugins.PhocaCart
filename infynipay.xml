@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="pcp" method="upgrade" scriptfile="script.php">
+    <name>plg_pcp_infynipay</name>
+    <author>Your Name</author>
+    <creationDate>2026-05-18</creationDate>
+    <version>1.0.0</version>
+    <description>PLG_PCP_INFYNIPAY_XML_DESCRIPTION</description>
+    <namespace path="src">Joomla\Plugin\PhocacartPayment\Infynipay</namespace>
+
+    <files>
+        <filename plugin="infynipay">infynipay.php</filename>
+        <filename>script.php</filename>
+        <folder>src</folder>
+        <folder>services</folder>
+        <folder>images</folder>
+        <folder>layouts</folder>
+        <folder>media</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_pcp_infynipay.ini</language>
+        <language tag="en-GB">language/en-GB/plg_pcp_infynipay.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic" label="PLG_PCP_INFYNIPAY_FIELDSET_BASIC"
+                addfieldprefix="Joomla\Plugin\PhocacartPayment\Infynipay\Field">
+
+                <!-- Credentials stored programmatically via OAuth callback -->
+                <field name="license_id"     type="hidden" default="" />
+                <field name="sandbox_app_id" type="hidden" default="" />
+                <field name="sandbox_token"  type="hidden" default="" />
+                <field name="live_app_id"    type="hidden" default="" />
+                <field name="live_token"     type="hidden" default="" />
+
+                <field
+                    name="sandbox"
+                    type="radio"
+                    label="PLG_PCP_INFYNIPAY_SANDBOX_LABEL"
+                    description="PLG_PCP_INFYNIPAY_SANDBOX_DESC"
+                    default="1"
+                    class="btn-group btn-group-yesno"
+                    layout="joomla.form.field.radio.switcher"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <!-- OAuth connect button — rendered by SetupbuttonField -->
+                <field
+                    name="setup_button"
+                    type="Setupbutton"
+                    label="PLG_PCP_INFYNIPAY_GATEWAYS_LABEL"
+                    description=""
+                />
+
+                <field
+                    name="providers_overview"
+                    type="Providers"
+                    label="PLG_PCP_INFYNIPAY_SUPPORTED_GATEWAYS_LABEL"
+                    description=""
+                />
+
+                <field
+                    name="order_status_success"
+                    type="number"
+                    label="PLG_PCP_INFYNIPAY_STATUS_SUCCESS_LABEL"
+                    description="PLG_PCP_INFYNIPAY_STATUS_SUCCESS_DESC"
+                    default="2"
+                    min="1"
+                    class="w-auto"
+                />
+
+                <field
+                    name="order_status_pending"
+                    type="number"
+                    label="PLG_PCP_INFYNIPAY_STATUS_PENDING_LABEL"
+                    description="PLG_PCP_INFYNIPAY_STATUS_PENDING_DESC"
+                    default="1"
+                    min="1"
+                    class="w-auto"
+                />
+
+                <field
+                    name="order_status_failed"
+                    type="number"
+                    label="PLG_PCP_INFYNIPAY_STATUS_FAILED_LABEL"
+                    description="PLG_PCP_INFYNIPAY_STATUS_FAILED_DESC"
+                    default="3"
+                    min="1"
+                    class="w-auto"
+                />
+
+                <field
+                    name="order_status_cancelled"
+                    type="number"
+                    label="PLG_PCP_INFYNIPAY_STATUS_CANCELLED_LABEL"
+                    description="PLG_PCP_INFYNIPAY_STATUS_CANCELLED_DESC"
+                    default="3"
+                    min="1"
+                    class="w-auto"
+                />
+
+
+
+                <!-- Inline log viewer -->
+                <field
+                    name="log_viewer"
+                    type="Logviewer"
+                    label="PLG_PCP_INFYNIPAY_LOG_LABEL"
+                    description=""
+                />
+
+            </fieldset>
+        </fields>
+    </config>
+</extension>
